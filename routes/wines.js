@@ -1,8 +1,8 @@
 // connect mongoose
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/vinosdb');
-mongoose.connect('mongodb://nodejitsu:c54ead583c18364cd5f6261358f3ff4c@linus.mongohq.com:10008/nodejitsudb3716971115
-');
+mongoose.connect('mongodb://localhost/vinosdb');
+//mongoose.connect('mongodb://nodejitsu_sasij:94kuo44pvtiappfjkflq4mpii5@ds049537.mongolab.com:49537/nodejitsu_sasij_nodejitsudb2410344318');
+
 
 var Schema = mongoose.Schema;
 
