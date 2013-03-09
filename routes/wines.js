@@ -1,3 +1,5 @@
+//Necesario para almacenar la imagen
+var fs = require('fs');
 // connect mongoose
 var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/vinosdb');
@@ -14,7 +16,8 @@ var VinoSchema = new mongoose.Schema({
   color: String,
   precio: String,
   puntuacion: String,
-  cata: String
+  cata: String,
+
 });
 
 // use the schema to register a model
@@ -37,6 +40,12 @@ exports.getVinos = function getVinos(req, res, next) {
 
 // post a wine
 exports.postVino = function postVino(req, res, next) {
+  console.log("post recibido");
+
+  var uploadedFile = req.files.uploadingFile;
+  var tmpPath = uploadedFile.path;
+  var targetPath = './Public/imageUploaded/' + uploadedFile.name;
+
   var vino = new Vino();
   vino.nombre = req.body.nombre;
   vino.denominacionOrigen = req.body.denominacionOrigen;
@@ -46,6 +55,16 @@ exports.postVino = function postVino(req, res, next) {
   vino.puntuacion = req.body.puntuacion;
   vino.cata = req.body.cata;
   vino.save();
+
+  //Guardamos los datos en el fichero
+  fs.rename(tmpPath, targetPath, function(err) {
+    if (err) throw err;
+    fs.unlink(tmpPath, function() {
+        if (err) throw err;
+            console.log("guardando");
+    });
+  });
+
   res.end();
   /*film.save(function (err, obj) {
     res.send(obj);
