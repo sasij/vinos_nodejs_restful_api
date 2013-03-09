@@ -3,9 +3,22 @@ var app = app || {};
 (function($){
 
     app.Vino = Backbone.Model.extend({
-    defaults:{
-      photo: "../img/wine.png"
-    }
-  });
+
+        defaults:{
+            nombre:"",
+            denominacionOrigen:"",
+            color:"",
+            anyo:"",
+            precio:"",
+            cata:"",
+            targetPath: "../imageUploaded/wine.png"
+        },
+
+        urlRoot: function(){
+            return "/wines/";
+        }
+
+
+    });
 
 })(jQuery);

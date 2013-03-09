@@ -45,10 +45,25 @@ footer p{
   color: white;
   text-align: justify;
 }
+
+pre.prettyprint {
+  padding: 10px;
+  margin-top: 10px;
+}
+
 .autor{
   color: #bb003e;
   font-weight: bold;
   text-align: right;
+}
+
+.barra {margin-left: 1em}
+
+.btn{
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-family: "Open Sans",Arial;
+  font-weight: bold;
 }
 
 .btn_new_wine{
@@ -108,6 +123,11 @@ footer p{
    font-family: "Open Sans",Arial;
    font-weight: normal;
 }
+
+.hero-unit h1 {
+  margin: 0 0 10px 0;
+}
+
 .icon_social{
   display: inline-block;
   margin: 0em 0.5em 0.5em 0em;
@@ -177,7 +197,9 @@ footer p{
   font-size: 5.5em;
 
 }
-
+.more_margin{
+  margin-left: 100px;
+}
 .new_wine_info{
   background: #2a3640;
   color: #fff;
@@ -220,26 +242,14 @@ footer p{
   vertical-align: top;
   width: 30%;
 }
-
-.more_margin{
-  margin-left: 100px;
-}
-.barra {margin-left: 1em}
-
-
-
-.hero-unit h1 {
-  margin: 0 0 10px 0;
+.vino_template:hover{
+  border: 2px solid #76cce5;
 }
 
-pre.prettyprint {
-  padding: 10px;
-  margin-top: 10px;
-}
 
-.btn{
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-family: "Open Sans",Arial;
-  font-weight: bold;
-}
+
+
+
+
+
+

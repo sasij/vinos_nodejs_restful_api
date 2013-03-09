@@ -7,7 +7,8 @@ var app = app || {};
 
     routes:{
       "" : "index",
-      "filter/:color" : "urlFilter"
+      "filter/:color" : "urlFilter",
+      "id/:identificator" : "viewDetail"
     },
 
     initialize: function(){
@@ -28,9 +29,17 @@ var app = app || {};
     },
 
     urlFilter: function(color){
-      console.log("ok");
       app.vista_coleccion_vinos.filterType = color;
-      console.log(color);
+    },
+
+    viewDetail : function(identificator){
+
+      if (app.vistaVino !== undefined) app.vistaVino.undelegateEvents();
+      if (app.vista_coleccion_vinos !== undefined) app.vista_coleccion_vinos.undelegateEvents();
+      app.vino = new app.Vino({id:identificator});
+      app.vista_detallada_vino = new app.VistaDetalladaVino({model:app.vino});
+      app.vino.fetch();
+
     }
 
   });

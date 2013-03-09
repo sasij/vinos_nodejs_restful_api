@@ -6,7 +6,7 @@ $(document).on("ready", function(){
   app.router.start();
   //Resto de funciones asociadas a eventos de Socket.io
 
-  //funciones asociadas a eventos jQuery
+  //funciones asociadas a eventos jQuery fuera de las vistas
   $('#submitButton').on('click', function(e){
 
     nombre = $('#nombre').val();
@@ -19,8 +19,6 @@ $(document).on("ready", function(){
 	file = $('#inputFile').get(0).files[0];
 	isValid = validateForm();
 
-    console.log("is valid:: " + isValid);
-
     if (!isValid) {
         e.preventDefault();
         //mostrar mensaje de error
@@ -28,7 +26,7 @@ $(document).on("ready", function(){
         return false;
     }
     else {
-        
+
         var fd = new FormData();
         fd.append('nombre', nombre); // req.body.date
         fd.append('denominacionOrigen', denominacionOrigen);
@@ -48,7 +46,6 @@ $(document).on("ready", function(){
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log("OK");
                 window.location="index.html";
             }
         });
@@ -72,33 +69,11 @@ $(document).on("ready", function(){
             return false;
 
         if (typeof file == 'undefined')
-            return false
+            return false;
 
         if(!regexPunt.test(puntuacion) || !regexPunt.test(anyo))
             return false;
- 
+
         return true;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });

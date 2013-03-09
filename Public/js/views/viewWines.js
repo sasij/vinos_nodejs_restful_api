@@ -8,7 +8,7 @@ var app = app || {};
 
     initialize: function(){
 
-      _.bindAll(this, "render", "filterByType", "setFilter", "changeNavbar");
+      _.bindAll(this, "filterByType", "setFilter", "changeNavbar");
 
       app.coleccion_vinos.on("change:filterType", this.filterByType, this);
       app.coleccion_vinos.on("reset", this.render, this);

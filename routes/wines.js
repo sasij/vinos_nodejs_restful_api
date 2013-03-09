@@ -17,6 +17,7 @@ var VinoSchema = new mongoose.Schema({
   precio: String,
   puntuacion: String,
   cata: String,
+  targetPath: String
 
 });
 
@@ -26,6 +27,7 @@ var Vino = mongoose.model('Vino');
 
 // get one wine
 exports.getVino = function getVino(req, res, next) {
+  console.log(req.params.id);
   Vino.findById(req.params.id, function (error,data) {
     res.send(data);
   });
@@ -40,7 +42,6 @@ exports.getVinos = function getVinos(req, res, next) {
 
 // post a wine
 exports.postVino = function postVino(req, res, next) {
-  console.log("post recibido");
 
   var uploadedFile = req.files.uploadingFile;
   var tmpPath = uploadedFile.path;
@@ -54,6 +55,7 @@ exports.postVino = function postVino(req, res, next) {
   vino.precio = req.body.precio;
   vino.puntuacion = req.body.puntuacion;
   vino.cata = req.body.cata;
+  vino.targetPath = targetPath;
   vino.save();
 
   //Guardamos los datos en el fichero
@@ -61,10 +63,8 @@ exports.postVino = function postVino(req, res, next) {
     if (err) throw err;
     fs.unlink(tmpPath, function() {
         if (err) throw err;
-            console.log("guardando");
     });
   });
-
   res.end();
   /*film.save(function (err, obj) {
     res.send(obj);
@@ -75,6 +75,11 @@ exports.postVino = function postVino(req, res, next) {
 // put new attributes on a wine
 exports.putVino = function putFilm(req, res, next) {
   Vino.findById(req.params.id, function(err, vino) {
+    
+    var uploadedFile = req.files.uploadingFile;
+    var tmpPath = uploadedFile.path;
+    var targetPath = './Public/imageUploaded/' + uploadedFile.name;
+
     vino.nombre = req.body.nombre;
     vino.denominacionOrigen = req.body.denominacionOrigen;
     vino.anyo = req.body.anyo;
@@ -82,8 +87,18 @@ exports.putVino = function putFilm(req, res, next) {
     vino.precio = req.body.precio;
     vino.puntuacion = req.body.puntuacion;
     vino.cata = req.body.cata;
+    //vino.targetPath = targetPath;
     vino.save();
+
+    //Guardamos los datos en el fichero
+    fs.rename(tmpPath, targetPath, function(err) {
+      if (err) throw err;
+      fs.unlink(tmpPath, function() {
+        if (err) throw err;
+      });
+    });
     res.end();
+
     /*p.save(function (error, obj) {
       res.send(obj);
       ApiEvent.emit('api:films:change', obj);
