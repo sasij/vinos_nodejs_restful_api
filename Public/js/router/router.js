@@ -39,7 +39,6 @@ var app = app || {};
       app.vino = new app.Vino({id:identificator});
       app.vista_detallada_vino = new app.VistaDetalladaVino({model:app.vino});
       app.vino.fetch();
-
     }
 
   });

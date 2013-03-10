@@ -5,6 +5,8 @@ var app = app || {};
     app.VistaDetalladaVino = Backbone.View.extend({
 
         el: $("#vinos"),
+        className: "vino_template",
+        template: $("#detalleVino").html(),
 
 /*
         events: {
@@ -12,19 +14,14 @@ var app = app || {};
         },
 */
 
-        template: _.template( "hola" ),
-
         initialize: function() {
             this.model.on('change', this.render, this);
             this.model.on("reset", this.render, this);
         },
 
         render: function() {
-            console.log("rendeando");
-            
-            $(this.el).html("");
-            if (!this.model.isNew())
-                this.$el.html(this.template(this.model.toJSON()));
+            var tmpl = _.template(this.template);
+            $(this.el).html(tmpl(this.model.toJSON()));
             return this;
         }
 

@@ -131,7 +131,7 @@
 
         </div>
         </footer>
-        <!-- Template -->
+        <!-- Template  principal-->
         <script id="vinoTemplate" type="text/template">
             <div class="img_wine">
                 <img src="<%= targetPath %>" class="img-rounded">
@@ -161,6 +161,18 @@
                 </ul>
             </div>
         </script>
+        <!-- Template detalle -->
+        <script id="detalleVino" type="text/template">
+          <ul>
+            <li><strong class="nombre_vino">"<%= nombre %>"</strong></li>
+            <li><strong>D.O:</strong> "<%= denominacionOrigen %>"</li>
+            <li><strong>Tipo:</strong> "<%= color %>"</li>
+            <li><strong>Año:</strong> "<%= anyo %>"</li>
+            <li><strong>Precio:</strong> "<%= precio %>"</li>
+            <li><strong>Cata:</strong> "<%= cata %>" </li>
+           </ul>
+        </script>
+
         <!-- CARGA DE SCRIPT-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="js/vendor/json2.js"></script>

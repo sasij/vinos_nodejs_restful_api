@@ -17,8 +17,6 @@ var app = app || {};
         urlRoot: function(){
             return "/wines/";
         }
-
-
     });
 
 })(jQuery);
