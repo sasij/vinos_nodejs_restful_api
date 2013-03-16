@@ -23,6 +23,8 @@ var app = app || {};
         url : this.url,
         dataType : 'json',
         success : function(data) {
+          $("#bar").html("");
+          $("#bar").append('<li class="active"><a href="#">todos</a></li>');
           console.log(data);
           app.vinos = data;
           // set collection data (assuming you have retrieved a json object)

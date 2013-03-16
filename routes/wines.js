@@ -55,7 +55,8 @@ exports.postVino = function postVino(req, res, next) {
   vino.precio = req.body.precio;
   vino.puntuacion = req.body.puntuacion;
   vino.cata = req.body.cata;
-  vino.targetPath = targetPath;
+  vino.targetPath = '../imageUploaded/' + uploadedFile.name;
+;
   vino.save();
 
   //Guardamos los datos en el fichero
@@ -75,7 +76,7 @@ exports.postVino = function postVino(req, res, next) {
 // put new attributes on a wine
 exports.putVino = function putFilm(req, res, next) {
   Vino.findById(req.params.id, function(err, vino) {
-    
+
     var uploadedFile = req.files.uploadingFile;
     var tmpPath = uploadedFile.path;
     var targetPath = './Public/imageUploaded/' + uploadedFile.name;
@@ -109,7 +110,7 @@ exports.putVino = function putFilm(req, res, next) {
 
 // delete a wine from the database
 exports.deleteVino = function deleteVino(req, res, next) {
-  console.log("trying to delete");
+  console.log("trying to delete --> " + req.params.id);
   Vino.findById(req.params.id, function(err, p) {
     p.remove();
     res.send('');

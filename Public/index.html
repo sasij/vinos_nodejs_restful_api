@@ -91,7 +91,7 @@
             <div class="span4 offset1">
                 <p>¡Hola! </p>
                 <p>Aquí podrás introducir tus nuevos vinos. Para ello, sólo tienes que rellenar el formulario y pulsar solbre el botón de enviar. Recuerda que todos los campos son necesarios. </p>
-                <p class="autor">@juanjosasi</p>
+                <p class="autor">@_juanjos_</p>
             </div>
 
              <div class="span4" align="justify">
@@ -116,11 +116,11 @@
             <div class="row-fluid">
             <div class="span3 offset1 more_maring">
                 <h3>Desarrollado y mantenido por</h3>
-                <h4>@juanjosasi</h4>
+                <h4>@_juanjos_</h4>
             </div>
             <div class="span3">
                 <h3>¿Quiere colaborar?</h3>
-                <p>Si te gusta aprender en tu tiempo libre y deseas colaborar en el proyecto ponte en contacto con @juanjosasi</p>
+                <p>Si te gusta aprender en tu tiempo libre y deseas colaborar en el proyecto ponte en contacto con @_juanjos_</p>
             </div>
             <div class="span3">
                 <h3>Consigue tu aplicación para</h3>
@@ -134,7 +134,7 @@
         <!-- Template  principal-->
         <script id="vinoTemplate" type="text/template">
             <div class="img_wine">
-                <img src="<%= targetPath %>" class="img-rounded">
+                <img src=<%= targetPath %> class="img-rounded">
                 <%if( puntuacion == 1){%>
                     <span class="rating-static rating-10"></span>
                 <%}else if(puntuacion == 2){%>
@@ -152,25 +152,45 @@
 
             <div class="info_wine">
                 <ul>
-                    <li><strong class="nombre_vino">"<%= nombre %>"</strong></li>
-                    <li><strong>D.O:</strong> "<%= denominacionOrigen %>"</li>
-                    <li><strong>Tipo:</strong> "<%= color %>"</li>
-                    <li><strong>Año:</strong> "<%= anyo %>"</li>
-                    <li><strong>Precio:</strong> "<%= precio %>"</li>
-                    <li><strong>Cata:</strong> "<%= cata %>" </li>
+                    <li><strong class="nombre_vino"> <%= nombre %> </strong></li>
+                    <li><strong>D.O:</strong> <%= denominacionOrigen %> </li>
+                    <li><strong>Tipo:</strong> <%= color %> </li>
+                    <li><strong>Año:</strong> <%= anyo %> </li>
+                    <li><strong>Precio:</strong> <%= precio %> </li>
+                    <!--<li><strong>Cata:</strong> <%= cata %> </li>-->
                 </ul>
             </div>
         </script>
         <!-- Template detalle -->
         <script id="detalleVino" type="text/template">
-          <ul>
-            <li><strong class="nombre_vino">"<%= nombre %>"</strong></li>
-            <li><strong>D.O:</strong> "<%= denominacionOrigen %>"</li>
-            <li><strong>Tipo:</strong> "<%= color %>"</li>
-            <li><strong>Año:</strong> "<%= anyo %>"</li>
-            <li><strong>Precio:</strong> "<%= precio %>"</li>
-            <li><strong>Cata:</strong> "<%= cata %>" </li>
-           </ul>
+
+        <div class="detalle_vino">
+            <div class="detalle_vino_imagen">
+                <a href=""><div class="center"><i class="icon-remove"></i></div></a>
+                <img src= <%= targetPath %> />
+            </div>
+
+            <div class="detalle_vino_info">
+            <strong class="nombre_vino"><%= nombre %></strong>
+            <div class="detalle_vino_imagen_aux">
+                <%if( color == "tinto"){%>
+                    <img src= "./img/uvas_rojas.png" />
+                <%}else if(color == "rosado" ){%>
+                    <img src= "./img/mezcla.png" />
+                <%}else{%>
+                    <img src= "./img/uvasblancas.png" />
+                <%}%>
+            </div>
+              <ul>
+                <li><strong>D.O.:</strong> <span><%= denominacionOrigen %> </span></li>
+                <li><strong>Tipo:</strong> <span><%= color %> </span></li>
+                <li><strong>Año:</strong> <span><%= anyo %> </span></li>
+                <li><strong>Precio:</strong> <span><%= precio %> </span></li>
+                <li><strong>Cata:</strong> <span><%= cata %> </span></li>
+              </ul>
+            </div>
+
+        </div>
         </script>
 
         <!-- CARGA DE SCRIPT-->

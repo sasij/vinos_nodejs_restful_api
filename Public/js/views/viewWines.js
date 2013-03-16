@@ -65,7 +65,7 @@ var app = app || {};
       app.coleccion_vinos.trigger("change:filterType");
     },
 
-filterByType: function () {
+    filterByType: function () {
       if (this.filterType === "todos") {
         //this.coleccion.reset(vinos);
         app.coleccion_vinos.reset(app.vinos);

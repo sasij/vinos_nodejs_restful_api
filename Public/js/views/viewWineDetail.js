@@ -8,11 +8,11 @@ var app = app || {};
         className: "vino_template",
         template: $("#detalleVino").html(),
 
-/*
+
         events: {
-            "dblclick li":  "edit"
+            "click a":  "delete"
         },
-*/
+
 
         initialize: function() {
             this.model.on('change', this.render, this);
@@ -23,6 +23,12 @@ var app = app || {};
             var tmpl = _.template(this.template);
             $(this.el).html(tmpl(this.model.toJSON()));
             return this;
+        },
+
+        delete: function(){
+            console.log("funcionando");
+            this.model.destroy();
+            app.router.navigate('', true);
         }
 
     });

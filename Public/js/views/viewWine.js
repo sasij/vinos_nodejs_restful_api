@@ -18,7 +18,7 @@ var app = app || {};
       },
 
       viewVine: function(){
-        console.log(this.model.get('_id'));
+//        console.log(this.model.get('_id'));
         app.router.navigate("/id/" + this.model.get('_id'), true);
       }
   });
