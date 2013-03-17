@@ -83,10 +83,8 @@ pre.prettyprint {
 .detalle_vino_imagen{
 
   display: inline-block;
-  margin-top: 1em;
-  margin-left: 1em;
+  margin: 1em 0 1em 1em;
   vertical-align: top;
-  z-index: 99;
   width: 20%;
 }
 
@@ -96,12 +94,13 @@ pre.prettyprint {
 }
 
 .detalle_vino_imagen img {
+  max-height: 300px;
   width: 100%;
 }
 
 .detalle_vino_imagen_aux{
   position: relative;
-  top: -50px;
+  top: -80px;
   display: block;
   float: right;
   width: 40%;
@@ -247,6 +246,7 @@ pre.prettyprint {
 .img_wine img{
   margin-top: 0.5em;
   overflow: hidden;
+  max-height: 100px;
 }
 
 .logo{
@@ -309,6 +309,7 @@ pre.prettyprint {
   box-shadow: rgba(0,0,0,0.5) 5px 5px 7px;
   display: inline-block;
   margin: 0.4em 0.4em;
+  min-height: 150px;
   padding: 5px 5px;
   vertical-align: top;
   width: 30%;
@@ -317,6 +318,39 @@ pre.prettyprint {
   border: 2px solid #76cce5;
 }
 
+@media (min-width: 1200px) {}
+@media (min-width: 768px) and (max-width: 979px) {}
+@media (max-width: 767px) {
+  .vino_template{ width: 90%; }
+  .detalle_vino{width: 100%;}
+
+}
+@media (max-width: 480px) {
+  .logo{display: none;}
+  .detalle_vino{width: 100%;}
+  .detalle_vino_imagen {
+    display: block;
+    margin: 1em auto;
+    width: 50%;
+  }
+  .detalle_vino_info .nombre_vino {
+    display: block;
+    font-size: 1.8em;
+    text-align: center;
+  }
+  .detalle_vino_imagen_aux{
+    display: none;
+  }
+  .detalle_vino_info{
+    width: 100%;
+  }
+  .vino_template{ width: 90%; }
+
+  .navbar .brand {
+    display: none;
+  }
+
+}
 
 
 
