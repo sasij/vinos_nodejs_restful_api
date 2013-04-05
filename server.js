@@ -5,6 +5,7 @@ var express = require('express'),
     io      = require('socket.io').listen(server),
     cons    = require('consolidate'),
     mongoose = require('mongoose'),
+    port = process.env.PORT || 3000;
     wines   = require('./routes/wines');
 
 
@@ -19,6 +20,9 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
