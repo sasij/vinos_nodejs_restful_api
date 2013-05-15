@@ -1,5 +1,6 @@
 //Load app dependencies
 var express = require('express'),
+    connect = require("connect"),
     app     = express(),
     server  = require('http').createServer(app),
     io      = require('socket.io').listen(server),
@@ -16,7 +17,7 @@ app.configure(function(){
   app.use(express.bodyParser({uploadDir: './upload'}));
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
+  app.use(express.static(__dirname + '/Public'));
 });
 
 app.configure('development', function(){
@@ -43,7 +44,6 @@ app.all('*', function(req, res, next){
 });
 
 
-
 // define the routes
 app.get('/wines', wines.getVinos );
 app.get('/wines/:id', wines.getVino );
@@ -51,6 +51,7 @@ app.post('/wines', wines.postVino );
 app.put('/wines/:id', wines.putVino );
 app.delete('/wines/:id', wines.deleteVino );
 
-
-app.listen(3000);
+app.listen(port, function(){
+  console.log("Puerto::" + port);
+});
 console.log('listening on port 3000...x-X');

@@ -319,8 +319,9 @@ pre.prettyprint {
 }
 
 @media (min-width: 1200px) {}
-@media (min-width: 768px) and (max-width: 979px) {}
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 980px) {}
+
+@media (max-width: 768px) {
   .vino_template{ width: 90%; }
   .detalle_vino{width: 100%;}
 

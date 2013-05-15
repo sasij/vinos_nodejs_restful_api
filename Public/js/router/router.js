@@ -23,7 +23,7 @@ var app = app || {};
     // actions for index
     index: function() {
       console.log("index");
-       app.coleccion_vinos = new app.ColeccionVinos();
+      app.coleccion_vinos = new app.ColeccionVinos();
       app.vista_coleccion_vinos = new app.VistaColeccionVinos({collection: this.coleccion_vinos});
       app.coleccion_vinos.fetch();
       app.vista_coleccion_vinos.render();
