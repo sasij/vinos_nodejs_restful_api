@@ -130,7 +130,7 @@ pre.prettyprint {
   display: inline-block;
   color: #bb003e;
   font-size: 1.1em;
-  margin: 4px 4px 9px 4px;
+  margin: 4px 4px 1px 4px;
   min-width: 50px;
   text-align: right;
 }
@@ -140,8 +140,8 @@ pre.prettyprint {
   font-size: 1.1em;
   margin-right: 4px;
   text-align: left; ;
-
 }
+
 
 .form_new_wine input[type=text]{
   width: 100%;
@@ -303,6 +303,8 @@ pre.prettyprint {
   margin-top: 2em;
 }
 
+
+
 .vino_template{
   border: 2px solid #ccc;
   border-radius: 2px;
@@ -318,15 +320,16 @@ pre.prettyprint {
   border: 2px solid #76cce5;
 }
 
-@media (min-width: 1200px) {}
-@media (min-width: 768px) and (max-width: 980px) {}
 
-@media (max-width: 768px) {
+
+@media screen and (min-width: 1200px) {}
+@media screen and (min-width: 768px) and (max-width: 980px) {}
+
+@media screen and (max-width: 768px) {
   .vino_template{ width: 90%; }
   .detalle_vino{width: 100%;}
-
 }
-@media (max-width: 480px) {
+@media screen and(max-width: 480px) {
   .logo{display: none;}
   .detalle_vino{width: 100%;}
   .detalle_vino_imagen {
